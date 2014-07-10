@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <script>
+          $(function (){
+              $(document.getElementsByTagName('input')[0]).keydown(function(event){
+                  if (event.keyCode === 13) {
+                      $.getJSON('/countries/' + this.value, function (data) {
+                          console.log(data);
+                      });
+                  }
+              });
+          });
+      </script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div>Some data</div>
+    <input type="text"/>
+  </body>
+</html>
